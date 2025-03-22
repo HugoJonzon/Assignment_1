@@ -5,7 +5,9 @@ import math
 
 
 class Filter2:  # Class for the filter
-    def __init__(self, type=None, Lvalue=None, Cvalue=None, Rvalue=0):  # Class for the filter
+    def __init__(
+        self, type=None, Lvalue=None, Cvalue=None, Rvalue=0
+    ):  # Class for the filter
         if type == "HP" or type == "LP":
             self.type = type
         else:
@@ -18,15 +20,21 @@ class Filter2:  # Class for the filter
         else:
             raise ValueError("All component values must be positive.")
 
-    def get_resonance_point(self):  # This function calculates the resonans point for the filter and then prints it
+    def get_resonance_point(
+        self,
+    ):  # This function calculates the resonans point for the filter and then prints it
         resonansFreq = 1 / (2 * math.pi * math.sqrt(self.Lvalue * self.Cvalue))
         return round(resonansFreq, 4)
 
-    def get_damping_factor(self):  # This function calculates the damping factor for the filter and then prints it
+    def get_damping_factor(
+        self,
+    ):  # This function calculates the damping factor for the filter and then prints it
         dampingFactor = self.Rvalue / 2 * math.sqrt(self.Cvalue / self.Lvalue)
         return round(dampingFactor, 4)
 
-    def get_transfer(self):  # This gets the transfer function. The transfer function for high pass and low pass are differet
+    def get_transfer(
+        self,
+    ):  # This gets the transfer function. The transfer function for high pass and low pass are differet
         if self.type == "LP":
             transfer = "1 / (s^2*{} + s*{} + 1)".format(
                 self.Lvalue * self.Cvalue, self.Rvalue * self.Cvalue

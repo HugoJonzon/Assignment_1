@@ -4,7 +4,9 @@ from FilterCode import Filter2
 
 
 class TestFilter(unittest.TestCase):
-    def test_get_resonance_point(self):  # Checks numerical value for the resonance point
+    def test_get_resonance_point(
+        self,
+    ):  # Checks numerical value for the resonance point
         self.assertAlmostEqual(
             Filter2("HP", 1 / (3.1415**2), 4, 5).get_resonance_point(), 0.25
         )
@@ -18,7 +20,9 @@ class TestFilter(unittest.TestCase):
         self.assertEqual(Filter2("LP", 5, 4, 3).get_transfer(), transferLP)
         self.assertEqual(Filter2("HP", 5, 4, 3).get_transfer(), transferHP)
 
-    def test_wrong_input_type(self):  # Checks if an error is raised for wrong input of "type"
+    def test_wrong_input_type(
+        self,
+    ):  # Checks if an error is raised for wrong input of "type"
         with self.assertRaises(ValueError):
             Filter2("WRONG", 1, 1, 1)
 
