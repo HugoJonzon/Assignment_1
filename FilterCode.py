@@ -13,15 +13,16 @@ class Filter2:  # Class for the filter
             raise ValueError("Wrong input text.")
 
         if Lvalue > 0 and Cvalue > 0 and Rvalue >= 0:
-            self.Lvalue = Lvalue
+            self.Lvalue=Lvalue  # Testing linter, should be: self.Lvalue = Lvalue
             self.Cvalue = Cvalue
             self.Rvalue = Rvalue  # Saves all the atributes is a objekt self
         else:
             raise ValueError("All component values must be positive.")
 
     # This function calculates the resonans point for the filter and then prints it
-    def get_resonance_point(self):
-        resonansFreq = 1 / (2 * math.pi * math.sqrt(self.Lvalue * self.Cvalue))
+    # Added a redundant variable (redundantVariable) to fail workflows (and will also break the linter)
+    def get_resonance_point(self, redundantVariable):
+        resonansFreq = 1 / (2 * math.pi * math.sqrt(self.Lvalue * self.Cvalue)) + redundantVariable
         return round(resonansFreq, 4)
 
     # This function calculates the damping factor for the filter and then prints it

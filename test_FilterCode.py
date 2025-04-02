@@ -12,8 +12,9 @@ class TestFilter(unittest.TestCase):
         )
 
     def test_get_damping_factor(self):  # Checks numerical value for the damping factor
-        self.assertAlmostEqual(Filter2("HP", 5, 2, 3).get_damping_factor(), 0.9487)
-
+        # Changed value to make unit test raise an error (correct value is 0.9487)
+        self.assertAlmostEqual(Filter2("HP", 5, 2, 3).get_damping_factor(), 10)
+        
     def test_get_transfer(self):  # Check the output string for the transfer function
         transferLP = "1 / (s^2*{} + s*{} + 1)".format(20, 12)
         transferHP = "(s^2*{}) / (s^2*{} + s*{} + 1)".format(20, 20, 12)
